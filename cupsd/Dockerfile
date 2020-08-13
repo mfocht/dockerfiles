@@ -1,3 +1,4 @@
+
 FROM olbat/debian:testing
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
@@ -9,6 +10,7 @@ RUN apt-get update \
   cups-client \
   cups-bsd \
   cups-filters \
+  net-tools \
   foomatic-db-compressed-ppds \
   printer-driver-all \
   openprinting-ppds \
@@ -45,8 +47,7 @@ RUN wget -O pc-mobility-print.sh https://www.papercut.com/products/ng/mobility-p
 RUN chmod +x pc-mobility-print.sh
 RUN useradd -m -d /home/papercut papercut
 RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
+#RUN sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
 
 # Default shell
-CMD [/home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT]
-CMD [bash '/home/papercut/pc-mobility-print/pc-mobility-print start']
 CMD ["/usr/sbin/cupsd", "-f"]
