@@ -9,7 +9,7 @@ RUN apt-get update \
   cups-client \
   cups-bsd \
   cups-filters \
-  ifconfig \
+  net-tools \
   foomatic-db-compressed-ppds \
   printer-driver-all \
   openprinting-ppds \
