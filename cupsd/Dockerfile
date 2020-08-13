@@ -51,4 +51,4 @@ RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
-CMD ["service", "pc-mobility-print", "start"]
+CMD ["/etc/init.d/pc-mobility-print", "start"]
