@@ -9,7 +9,6 @@ RUN apt-get update \
   cups-client \
   cups-bsd \
   cups-filters \
-  net-tools \
   foomatic-db-compressed-ppds \
   printer-driver-all \
   openprinting-ppds \
@@ -49,4 +48,5 @@ RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 #RUN sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
 
 # Default shell
+CMD [/home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT]
 CMD ["/usr/sbin/cupsd", "-f"]
