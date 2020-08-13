@@ -47,6 +47,6 @@ RUN useradd -m -d /home/papercut papercut
 RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 
 # Default shell
-CMD [bash '/home/papercut/pc-mobility-print/pc-mobility-print start']
 CMD [/home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT]
+CMD [bash '/home/papercut/pc-mobility-print/pc-mobility-print start']
 CMD ["/usr/sbin/cupsd", "-f"]
