@@ -54,5 +54,5 @@ RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 # Default shell
 CMD [cp /persist/printers.conf /etc/cups/printers]
 CMD [cp -r /persist/papercut/papercut /home]
-CMD ["/usr/sbin/cupsd", "-f"]
 CMD [bash '/home/papercut/pc-mobility-print/pc-mobility-print start']
+CMD ["/usr/sbin/cupsd", "-f"]
