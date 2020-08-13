@@ -1,4 +1,3 @@
-
 FROM olbat/debian:testing
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
@@ -51,5 +50,3 @@ RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
-#CMD ["sleep", "20"]
-#CMD ["/etc/init.d/pc-mobility-print", "start"]
