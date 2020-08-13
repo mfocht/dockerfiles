@@ -40,6 +40,18 @@ RUN /usr/sbin/cupsd \
 # Patch the default configuration file to only enable encryption if requested
 RUN sed -e '0,/^</s//DefaultEncryption IfRequested\n&/' -i /etc/cups/cupsd.conf
 
+#Allow Remote Administration of CUPS
+
+RUN echo '<Location />
+    Order allow,deny
+    Allow localhost
+    Allow from 192.168.0.*
+    Allow from 10.0.*.*
+</Location>
+
+Listen 0.0.0.0:631'
+>> /etc/cups/cupsd.conf
+
 #Setup Mobility Print
 RUN wget https://www.papercut.com/products/ng/mobility-print/download/server/linux/
 RUN chmod +x pc-mobility-print*.sh
