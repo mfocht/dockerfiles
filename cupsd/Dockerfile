@@ -1,6 +1,10 @@
 FROM olbat/debian:testing
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
+RUN mkdir persist
+RUN mkdir persist/papercut
+RUN mkdir persist/papercut/papercut
+RUN touch persist/printers.conf
 RUN apt-get update \
 && apt-get install -y \
   sudo \
