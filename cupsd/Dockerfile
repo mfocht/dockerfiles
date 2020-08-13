@@ -1,7 +1,4 @@
-ARG BASE_USER
-ARG MAINTAINER
-FROM ${BASE_USER}/debian:testing
-MAINTAINER $MAINTAINER
+FROM olbat/debian:testing
 
 # Install Packages (basic tools, cups, basic drivers, HP drivers)
 RUN apt-get update \
@@ -20,6 +17,7 @@ RUN apt-get update \
   hplip \
   smbclient \
   printer-driver-cups-pdf \
+  ghostscript \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
@@ -41,6 +39,12 @@ RUN /usr/sbin/cupsd \
 
 # Patch the default configuration file to only enable encryption if requested
 RUN sed -e '0,/^</s//DefaultEncryption IfRequested\n&/' -i /etc/cups/cupsd.conf
+
+#Setup Mobility Print
+RUN wget https://www.papercut.com/products/ng/mobility-print/download/server/linux/
+RUN chmod +x pc-mobility-print*.sh
+RUN useradd -m -d /home/papercut papercut
+RUN su papercut && sh pc-mobility-print*sh
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
