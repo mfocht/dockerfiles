@@ -49,7 +49,7 @@ RUN wget -O pc-mobility-print.sh https://www.papercut.com/products/ng/mobility-p
 RUN chmod +x pc-mobility-print.sh
 RUN useradd -m -d /home/papercut papercut
 RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
-#RUN sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
+RUN sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
 
 # Default shell
 CMD [cp /persist/printers.conf /etc/cups/printers.conf]
