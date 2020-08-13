@@ -56,7 +56,7 @@ RUN sed -e '0,/^</s//DefaultEncryption IfRequested\n&/' -i /etc/cups/cupsd.conf
 RUN wget -O pc-mobility-print.sh https://www.papercut.com/products/ng/mobility-print/download/server/linux/
 RUN chmod +x pc-mobility-print.sh
 RUN useradd -m -d /home/papercut papercut
-RUN su - papercut -c 'sh pc-mobility-print.sh'
+RUN su - papercut -c 'sh /pc-mobility-print.sh'
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
