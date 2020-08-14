@@ -46,7 +46,9 @@ RUN wget -O pc-mobility-print.sh https://www.papercut.com/products/ng/mobility-p
 RUN chmod +x pc-mobility-print.sh
 RUN useradd -m -d /home/papercut papercut
 RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
-#RUN sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
+
+#Start Papercut
+CMD sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
 
 # Default shell
 CMD ["/usr/sbin/cupsd", "-f"]
