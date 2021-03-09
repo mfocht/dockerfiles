@@ -51,5 +51,5 @@ RUN su - papercut -c 'sh /pc-mobility-print.sh --non-interactive -v'
 CMD sudo /home/papercut/pc-mobility-print/MUST-RUN-AS-ROOT
 
 # Default shell
-CMD ["/usr/sbin/cupsd", "-f"]
+CMD ["/usr/sbin/cupsd"]
 CMD sudo /home/papercut/pc-mobility-print/pc-mobility-print
